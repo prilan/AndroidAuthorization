@@ -4,12 +4,4 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Пароль</string>
-    <string name="action_sign_in">Войдите или зарегистрируйтесь</string>
-    <string name="action_sign_in_short">Войдите</string>
-    <string name="error_invalid_email">Неверный email</string>
-    <string name="error_invalid_password">Пароль слишком короткий</string>
-    <string name="error_incorrect_password">Неверный пароль</string>
-    <string name="error_field_required">Требуется заполнение поля</string>
-    <string name="permission_rationale">"Требуется доступ к контактам."
-    </string>
 </resources>

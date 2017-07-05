@@ -1,113 +1,161 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/GlobalLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    app:layout_collapseParallaxMultiplier="0.0"
-    tools:context="testapp.simbirsoft.com.test02.LoginActivity">
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp"
+            app:title="">
+
+            <ImageView
+                android:id="@+id/toolbarImage"
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bacground"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin"
+                app:contentScrim="?attr/colorPrimaryDark" >
 
 
-    <!-- Login progress -->
+            <Button
+                android:id="@+id/buttonNotify"
+                android:layout_width="@dimen/toolbar_button_size"
+                android:layout_height="@dimen/toolbar_button_size"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginRight="@dimen/common_margin"
+                android:background="@drawable/icon_notification"/>
 
-    <LinearLayout
-        android:id="@+id/UpLayout"
-        android:layout_width="361dp"
-        android:layout_height="184dp"
-        android:orientation="vertical">
+            <Button
+                android:id="@+id/buttonInfo"
+                android:layout_width="@dimen/toolbar_button_size"
+                android:layout_height="@dimen/toolbar_button_size"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginRight="@dimen/common_margin"
+                android:background="@drawable/icon_info" />
 
-        <include layout="@layout/toolbar"
-            android:layout_width="wrap_content" />
+            </android.support.v7.widget.Toolbar>
 
-    </LinearLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
-    <LinearLayout
-        android:id="@+id/ContentLayout"
-        android:layout_width="230dp"
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/textViewSafe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="sans-serif"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="8sp"
-            android:layout_marginTop="56dp"
-            android:text="SAFE"
-            android:textColor="#27c89b"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/ContentLayout"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/textViewWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="sans-serif"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="8sp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:text="Добро пожаловать"
-            android:textColor="#b5b5b5"
-            android:textSize="16sp"
-            android:textStyle="normal" />
+            <TextView
+                android:id="@+id/textViewSafe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:layout_marginTop="56dp"
+                android:text="SAFE"
+                android:textColor="@color/colorSafeText"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <AutoCompleteTextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:hint="@string/prompt_email"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:imeOptions="actionNext" />
+            <TextView
+                android:id="@+id/textViewWelcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:paddingBottom="@dimen/minimal_padding"
+                android:paddingTop="@dimen/minimal_padding"
+                android:text="Добро пожаловать"
+                android:textColor="@color/colorWelcomeText"
+                android:textSize="16sp"
+                android:textStyle="normal" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/prompt_password"
-            android:imeActionId="@+id/login"
-            android:imeActionLabel="@string/action_sign_in_short"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:maxLines="1" />
+            <AutoCompleteTextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:imeOptions="actionNext" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif"
-            android:lineSpacingExtra="4sp"
-            android:text="Забыли пароль?"
-            android:textAlignment="center"
-            android:textColor="#4a90e2"
-            android:textSize="12sp"
-            android:textStyle="normal" />
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin"
+                android:hint="@string/prompt_password"
+                android:imeActionId="@+id/login"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1" />
 
-        <Button
-            android:id="@+id/buttonSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/roundcorner"
-            android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0.04"
-            android:lineSpacingExtra="24sp"
-            android:text="Вход"
-            android:textColor="#ffffff"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="4sp"
+                android:text="Забыли пароль?"
+                android:textAlignment="center"
+                android:textColor="@color/colorForgotPassText"
+                android:textSize="12sp"
+                android:textStyle="normal" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/buttonSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/roundcorner"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="24sp"
+                android:text="Вход"
+                android:textColor="@color/colorSignInText"
+                android:textSize="16sp" />
 
-</LinearLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
